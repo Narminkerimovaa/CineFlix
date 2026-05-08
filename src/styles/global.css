@@ -39,11 +39,11 @@
   --font-sans:    'DM Sans', sans-serif;
   --font-display: 'DM Serif Display', serif;
 
-  --text-xs:   11px;
-  --text-sm:   13px;
-  --text-base: 15px;
-  --text-md:   18px;
-  --text-lg:   22px;
+  --text-xs:   15px;
+  --text-sm:   18px;
+  --text-base: 20px;
+  --text-md:   22px;
+  --text-lg:   25px;
   --text-xl:   28px;
 
   --weight-regular: 400;
@@ -77,7 +77,7 @@
   --shadow-card: 0 2px 12px rgba(0, 0, 0, 0.4);
 
   /* Layout */
-  --header-height:   56px;
+  --header-height:   80px;
   --content-max-w:   1100px;
   --content-padding: var(--space-7);
 
