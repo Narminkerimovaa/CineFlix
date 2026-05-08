@@ -1,0 +1,13 @@
+<svg width="128" height="128" viewBox="0 0 128 128" xmlns="http://www.w3.org/2000/svg">
+  <text x="50%" y="55" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="48" fill="#FFFFFF" letter-spacing="-2">
+    Cine
+  </text>
+  
+  <circle cx="56" cy="27" r="6" fill="#B3A196"/>
+
+  <text x="50%" y="105" text-anchor="middle" font-family="Arial, sans-serif" font-weight="900" font-size="48" fill="#FFFFFF" letter-spacing="-2">
+    flix
+  </text>
+  
+  <circle cx="89" cy="77" r="6" fill="#B3A196"/>
+</svg>
