@@ -1,0 +1,73 @@
+.header {
+  background: var(--color-bg-secondary);
+  border-bottom: 0.5px solid var(--color-border-subtle);
+  padding: 0 var(--content-padding);
+  height: var(--header-height);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  position: sticky;
+  top: 0;
+  z-index: var(--z-header);
+}
+
+/* ── Logo ── */
+.logo {
+  font-size: var(--text-md);
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.08em;
+  color: var(--color-text-primary);
+  text-transform: uppercase;
+  user-select: none;
+}
+
+.logoAccent {
+  color: var(--color-accent);
+}
+
+/* ── Nav ── */
+.nav {
+  display: flex;
+  align-items: center;
+  gap: var(--space-7);
+}
+
+.navLink {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+  text-decoration: none;
+  letter-spacing: 0.04em;
+  padding-bottom: 2px;
+  border-bottom: 1.5px solid transparent;
+  transition: color var(--transition-normal), border-color var(--transition-normal);
+}
+
+.navLink:hover {
+  color: var(--color-text-primary);
+}
+
+.navLinkActive {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+/* ── Avatar ── */
+.avatar {
+  width: 30px;
+  height: 30px;
+  border-radius: var(--radius-full);
+  background: var(--color-accent);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: var(--text-sm);
+  font-weight: var(--weight-bold);
+  color: var(--color-bg-primary);
+  cursor: pointer;
+  user-select: none;
+  transition: opacity var(--transition-normal);
+}
+
+.avatar:hover {
+  opacity: 0.85;
+}
