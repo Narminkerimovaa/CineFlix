@@ -1,3 +1,4 @@
+import PropTypes from 'prop-types';
 import styles from './MovieCard.module.css';
 
 const GENRE_CLASS = {
@@ -32,3 +33,11 @@ export default function MovieCard({ title, year, genre, rating, isNew = false })
     </div>
   );
 }
+
+MovieCard.propTypes = {
+  title:  PropTypes.string.isRequired,
+  year:   PropTypes.number.isRequired,
+  genre:  PropTypes.oneOf(['Drama', 'Crime', 'Action', 'Sci-Fi', 'Thriller', 'Biography']).isRequired,
+  rating: PropTypes.number.isRequired,
+  isNew:  PropTypes.bool,
+};
