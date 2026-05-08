@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom';
 import styles from './Header.module.css';
 
 const NAV_LINKS = [
@@ -16,13 +17,13 @@ export default function Header() {
 
       <nav className={styles.nav}>
         {NAV_LINKS.map(({ label, href, active }) => (
-          <a
+          <Link
             key={label}
-            href={href}
+            to={href}
             className={`${styles.navLink} ${active ? styles.navLinkActive : ''}`}
           >
             {label}
-          </a>
+          </Link>
         ))}
       </nav>
 
