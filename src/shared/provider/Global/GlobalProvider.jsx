@@ -1,6 +1,6 @@
 import { createContext, useState, useEffect, useMemo } from 'react';
-import { getInitialMovies } from '../services/handler';
-import { useFetch } from '../hooks/useFetch';
+import { getInitialMovies } from './../../services/handler';
+import { useFetch } from './../../hooks/useFetch';
 
 export const GlobalContext = createContext();
 

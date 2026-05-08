@@ -1,7 +1,7 @@
 import { useContext } from 'react';
 import { GlobalContext } from './GlobalProvider.jsx';
 
-export const useGlobal = () => {
+const useGlobal = () => {
   const context = useContext(GlobalContext);
 
   if (!context) {
@@ -10,3 +10,4 @@ export const useGlobal = () => {
 
   return context;
 };
+export default useGlobal;
