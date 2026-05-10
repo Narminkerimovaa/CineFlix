@@ -43,10 +43,32 @@
   align-items: center;
   justify-content: center;
   padding: var(--space-12) 0;
-  font-size: var(--space-8);
 }
 
 .error {
   font-size: var(--text-sm);
   color: var(--color-text-muted);
+}
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(160px, 1fr));
+    gap: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--text-lg);
+  }
+}
+
+@media (max-width: 480px) {
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .title {
+    font-size: var(--text-md);
+  }
 }

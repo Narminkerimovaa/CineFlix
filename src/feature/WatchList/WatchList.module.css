@@ -80,3 +80,42 @@
 }
 
 .browseBtn:hover { opacity: 0.8; }
+
+/* ── Responsive ── */
+@media (max-width: 768px) {
+  .page {
+    padding: var(--space-6) var(--content-padding);
+  }
+
+  .pageHeader {
+    margin-bottom: var(--space-7);
+  }
+
+  .grid {
+    grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+    gap: var(--space-4);
+  }
+}
+
+@media (max-width: 480px) {
+  .page {
+    padding: var(--space-5) var(--space-4);
+  }
+
+  .pageHeader {
+    margin-bottom: var(--space-5);
+  }
+
+  .grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: var(--space-3);
+  }
+
+  .emptyIcon {
+    font-size: 36px;
+  }
+
+  .emptyText {
+    font-size: var(--text-base);
+  }
+}

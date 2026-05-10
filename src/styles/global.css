@@ -207,3 +207,24 @@ ul, ol {
   background: var(--color-accent-dim);
   color: var(--color-accent);
 }
+
+@media (max-width: 768px) {
+  :root {
+    --content-padding: var(--space-5);
+    --text-xl: 24px;
+    --text-lg: 22px;
+    --text-md: 20px;
+  }
+}
+
+@media (max-width: 480px) {
+  :root {
+    --content-padding: var(--space-4);
+    --header-height: 64px;
+    --text-xl: 22px;
+    --text-lg: 20px;
+    --text-md: 18px;
+    --text-sm: 16px;
+    --text-xs: 13px;
+  }
+}

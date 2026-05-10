@@ -141,5 +141,14 @@
 /* ── Responsive ── */
 @media (max-width: 640px) {
   .nav    { display: none; }
+  .avatar { display: none; }  /* ← avatar gizlən */
   .burger { display: flex; }
+
+  .header {
+    padding: 0 var(--space-4);
+  }
+
+  .mobileMenu {
+    padding: var(--space-4) var(--space-4);
+  }
 }
