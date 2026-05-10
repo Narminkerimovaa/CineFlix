@@ -4,8 +4,11 @@ import useGlobal from "./../../shared/provider/Global/useGlobal";
 import MovieCard from "../../shared/components/Card";
 import Spinner from "../../shared/components/Spinner";
 import styles from "./ClassicsPage.module.css";
+import { useTitle } from "../../shared/hooks/useTitle";
 
 export default function ClassicsPage() {
+    useTitle("CineFlix | Classic");
+  
   const { movies, loading, error } = useGlobal();
   const location = useLocation();
 

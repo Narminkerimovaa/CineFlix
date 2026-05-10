@@ -3,8 +3,11 @@ import { useEffect, useState } from "react";
 import { getMovieById } from "./../../shared/services/handler";
 import styles from "./DetailPage.module.css";
 import useGlobal from "../../shared/provider/Global/useGlobal";
+import { useTitle } from "../../shared/hooks/useTitle";
 
 export default function DetailPage() {
+    useTitle("CineFlix | Detail");
+  
   const { id } = useParams();
   const navigate = useNavigate();
   const [movie, setMovie] = useState(null);

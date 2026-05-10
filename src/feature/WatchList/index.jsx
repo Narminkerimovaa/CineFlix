@@ -2,8 +2,11 @@ import { useNavigate } from "react-router-dom";
 import useGlobal from "./../../shared/provider/Global/useGlobal";
 import MovieCard from "./../../shared/components/Card";
 import styles from "./WatchList.module.css";
+import { useTitle } from "../../shared/hooks/useTitle";
 
 export default function WatchList() {
+  useTitle("CineFlix | Watch List");
+
   const { watchlist } = useGlobal();
   const navigate = useNavigate();
 

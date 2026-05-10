@@ -3,8 +3,11 @@ import useGlobal from '../../../shared/provider/Global/useGlobal';
 import MovieCard from '../../../shared/components/Card';
 import Spinner from '../../../shared/components/Spinner';
 import styles from './LateEraPage.module.css';
+import { useTitle } from '../../../shared/hooks/useTitle';
 
 export default function LateEraPage() {
+    useTitle("CineFlix | Late Era");
+  
   const { movies, loading, error } = useGlobal();
 
   const filtered = useMemo(

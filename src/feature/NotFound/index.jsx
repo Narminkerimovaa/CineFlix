@@ -1,7 +1,10 @@
 import { Link } from 'react-router-dom';
 import styles from './NotFound.module.css';
+  import {useTitle} from './../../shared/hooks/useTitle'
 
 export default function NotFound() {
+  useTitle("CineFlix | Not Found");
+
   return (
     <div className={styles.page}>
       <h1 className={styles.code}>404</h1>

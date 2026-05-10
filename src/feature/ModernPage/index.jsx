@@ -1,15 +1,18 @@
-import { useMemo } from 'react';
-import MovieCard from './../../shared/components/Card';
-import Spinner from './../../shared/components/Spinner';
-import styles from './ModernPage.module.css';
-import useGlobal from './../../shared/provider/Global/useGlobal';
+import { useMemo } from "react";
+import MovieCard from "./../../shared/components/Card";
+import Spinner from "./../../shared/components/Spinner";
+import styles from "./ModernPage.module.css";
+import useGlobal from "./../../shared/provider/Global/useGlobal";
+import { useTitle } from "../../shared/hooks/useTitle";
 
 export default function ModernPage() {
+  useTitle("CineFlix | Modern");
+
   const { movies, loading, error } = useGlobal();
 
   const modernMovies = useMemo(
     () => movies.filter((m) => m.year >= 2000 && m.year <= 2023),
-    [movies]
+    [movies],
   );
 
   return (
@@ -28,7 +31,9 @@ export default function ModernPage() {
 
       {error && (
         <div className={styles.center}>
-          <p className={styles.error}>Something went wrong. Please try again.</p>
+          <p className={styles.error}>
+            Something went wrong. Please try again.
+          </p>
         </div>
       )}
 
@@ -42,4 +47,3 @@ export default function ModernPage() {
     </div>
   );
 }
-
