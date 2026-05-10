@@ -26,6 +26,11 @@
   color: var(--color-text-primary);
 }
 
+.headercount {
+  font-size: var(--text-sm);
+  color: var(--color-text-muted);
+}
+
 /* ── Tabs ── */
 .tabs {
   display: flex;
@@ -74,12 +79,6 @@
   color: var(--color-accent);
   border-color: var(--color-accent);
   background: var(--color-accent-dim);
-}
-
-.count {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
-  margin-bottom: var(--space-5);
 }
 
 .grid {
