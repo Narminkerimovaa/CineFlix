@@ -8,6 +8,7 @@ import EarlyEraPage from "./../feature/EarlyEraPage";
 import LateEraPage from "./../feature/LateEraPage";
 import ModernPage from "./../feature/ModernPage";
 import NotFound from "./../feature/NotFound";
+import DetailPage from './../feature/DetailPage'
 
 export default function AppRoutes() {
   return (
@@ -24,6 +25,7 @@ export default function AppRoutes() {
           </Route>
 
           <Route path="/modern" element={<ModernPage />} />
+          <Route path="/movies/:id" element={<DetailPage />} />
 
           <Route path="*" element={<NotFound />} />
         </Routes>

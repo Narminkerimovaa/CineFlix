@@ -1,35 +1,62 @@
+/* ── Card ── */
 .card {
-  background: var(--color-bg-elevated);
-  border: 0.5px solid var(--color-border-subtle);
   border-radius: var(--radius-lg);
   overflow: hidden;
   cursor: pointer;
-  transition: border-color var(--transition-normal), transform var(--transition-normal);
-}
-
-.card:hover {
-  border-color: var(--color-border-strong);
-  transform: translateY(-2px);
+  position: relative;
 }
 
 /* ── Poster ── */
 .poster {
   width: 100%;
   aspect-ratio: 2 / 3;
-  background: var(--color-bg-hover);
+  background: var(--color-bg-elevated);
   position: relative;
-  display: flex;
-  align-items: flex-start;
-  justify-content: flex-start;
-  padding: var(--space-2) var(--space-3);
+  overflow: hidden;
+  border-radius: var(--radius-lg);
 }
 
-/* ── Rating ── */
+.posterImg {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+  transition: transform var(--transition-slow);
+}
+
+.card:hover .posterImg {
+  transform: scale(1.04);
+}
+
+.posterFallback {
+  width: 100%;
+  height: 100%;
+  background: var(--color-bg-hover);
+}
+
+/* ── Top Row ── */
+.topRow {
+  position: absolute;
+  top: var(--space-2);
+  left: var(--space-3);
+  right: var(--space-3);
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  z-index: 1;
+  transition: opacity var(--transition-normal);
+}
+
+.card:hover .topRow {
+  opacity: 0;
+}
+
+/* ── Rating Badge ── */
 .rating {
   display: flex;
   align-items: center;
   gap: var(--space-1);
-  background: rgba(0, 0, 0, 0.6);
+  background: rgba(0, 0, 0, 0.65);
   border-radius: var(--radius-sm);
   padding: 3px var(--space-2);
   font-size: var(--text-xs);
@@ -44,9 +71,6 @@
 
 /* ── New Badge ── */
 .newBadge {
-  position: absolute;
-  top: var(--space-2);
-  right: var(--space-3);
   background: var(--color-accent);
   color: var(--color-bg-primary);
   font-size: var(--text-xs);
@@ -57,42 +81,102 @@
   border-radius: var(--radius-sm);
 }
 
-/* ── Info ── */
-.info {
-  padding: var(--space-3) var(--space-3) var(--space-4);
+/* ── Hover Overlay ── */
+.overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(to top, rgba(0,0,0,0.95) 45%, transparent 100%);
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  padding: var(--space-4);
+  opacity: 0;
+  transition: opacity var(--transition-normal);
+  border-radius: var(--radius-lg);
+  border: 0.5px solid rgba(255,255,255,0.08);
 }
 
-.title {
-  font-size: var(--text-sm);
-  font-weight: var(--weight-medium);
-  color: var(--color-text-primary);
+.card:hover .overlay {
+  opacity: 1;
+}
+
+/* ── Overlay Info ── */
+.overlayInfo {
+  margin-bottom: var(--space-3);
+}
+
+.overlayTitle {
+  font-size: var(--text-base);
+  font-weight: var(--weight-bold);
+  color: #fff;
   line-height: var(--leading-tight);
   margin-bottom: var(--space-1);
 }
 
-.meta {
+.overlayMeta {
+  font-size: var(--text-xs);
+  color: rgba(255,255,255,0.6);
+  line-height: 1;
+}
+
+/* ── Overlay Actions ── */
+.overlayActions {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.actionsLeft {
   display: flex;
   align-items: center;
   gap: var(--space-2);
 }
 
-.year {
-  font-size: var(--text-xs);
-  color: var(--color-text-muted);
+/* ── Play Button ── */
+.playBtn {
+  width: 36px;
+  height: 36px;
+  border-radius: var(--radius-full);
+  background: #fff;
+  border: none;
+  color: #111;
+  font-size: 13px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  padding-left: 2px;
+  transition: background var(--transition-fast), transform var(--transition-fast);
 }
 
-/* ── Genre Tag ── */
-.genre {
-  font-size: var(--text-xs);
-  font-weight: var(--weight-medium);
-  letter-spacing: 0.03em;
-  padding: 2px var(--space-2);
-  border-radius: var(--radius-sm);
+.playBtn:hover {
+  background: rgba(255,255,255,0.85);
+  transform: scale(1.08);
 }
 
-.genreDrama    { background: var(--color-genre-drama-bg);     color: var(--color-genre-drama-text); }
-.genreCrime    { background: var(--color-genre-crime-bg);     color: var(--color-genre-crime-text); }
-.genreAction   { background: var(--color-genre-action-bg);    color: var(--color-genre-action-text); }
-.genreScifi    { background: var(--color-genre-scifi-bg);     color: var(--color-genre-scifi-text); }
-.genreThriller { background: var(--color-genre-thriller-bg);  color: var(--color-genre-thriller-text); }
-.genreBiography{ background: var(--color-genre-biography-bg); color: var(--color-genre-biography-text); }
+/* ── Icon Button ── */
+.iconBtn {
+  width: 32px;
+  height: 32px;
+  border-radius: var(--radius-full);
+  background: transparent;
+  border: 1.5px solid rgba(255,255,255,0.5);
+  color: rgba(255,255,255,0.8);
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: border-color var(--transition-fast), color var(--transition-fast), transform var(--transition-fast);
+}
+
+.iconBtn:hover {
+  border-color: #fff;
+  color: #fff;
+  transform: scale(1.08);
+}
+
+.iconBtnActive {
+  border-color: var(--color-accent);
+  color: var(--color-accent);
+}

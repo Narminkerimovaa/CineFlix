@@ -1,7 +1,7 @@
-import MovieCard from './../../shared/components/Card';
-import Spinner from './../../shared/components/Spinner';
-import styles from './Home.module.css';
-import useGlobal from './../../shared/provider/Global/useGlobal'
+import MovieCard from "./../../shared/components/Card";
+import Spinner from "./../../shared/components/Spinner";
+import styles from "./Home.module.css";
+import useGlobal from "./../../shared/provider/Global/useGlobal";
 
 export default function Home() {
   const { movies, loading, error } = useGlobal();
@@ -22,7 +22,9 @@ export default function Home() {
 
       {error && (
         <div className={styles.center}>
-          <p className={styles.error}>Something went wrong. Please try again.</p>
+          <p className={styles.error}>
+            Something went wrong. Please try again.
+          </p>
         </div>
       )}
 
@@ -30,12 +32,13 @@ export default function Home() {
         <div className={styles.grid}>
           {movies.map((movie) => (
             <MovieCard
-              key={movie.imdbID}
-              title={movie.Title}
-              year={Number(movie.Year)}
-              genre={movie.Genre?.split(',')[0].trim()}
-              rating={Number(movie.imdbRating)}
-              isNew={false}
+              key={movie.id}
+              id={movie.id} 
+              title={movie.title}
+              year={movie.year}
+              genre={movie.genre}
+              rating={movie.rating}
+              poster={movie.poster}
             />
           ))}
         </div>

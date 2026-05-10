@@ -1,33 +1,80 @@
-import PropTypes from 'prop-types';
-import styles from './MovieCard.module.css';
+import PropTypes from "prop-types";
+import { useState } from "react";
+import { useNavigate } from "react-router-dom";
+import styles from "./MovieCard.module.css";
+import useGlobal from "../../provider/Global/useGlobal";
 
-const GENRE_CLASS = {
-  Drama:     styles.genreDrama,
-  Crime:     styles.genreCrime,
-  Action:    styles.genreAction,
-  'Sci-Fi':  styles.genreScifi,
-  Thriller:  styles.genreThriller,
-  Biography: styles.genreBiography,
-};
+export default function MovieCard({
+  id,
+  title,
+  year,
+  genre,
+  rating,
+  runtime,
+  poster,
+  isNew = false,
+}) {
+  const navigate = useNavigate();
+  const { toggleWatchlist, isInWatchlist } = useGlobal();
+  const isFav = isInWatchlist(id);
 
-export default function MovieCard({ title, year, genre, rating, isNew = false }) {
+  const handleFav = (e) => {
+    e.stopPropagation();
+    toggleWatchlist({ id, title, poster, year });
+  };
+
+  const handlePlay = (e) => {
+    e.stopPropagation();
+    navigate(`/movies/${id}`);
+  };
+
   return (
-    <div className={styles.card}>
+    <div className={styles.card} onClick={() => navigate(`/movies/${id}`)}>
       <div className={styles.poster}>
-        <div className={styles.rating}>
-          <span className={styles.ratingStar}>★</span>
-          {rating}
-        </div>
-        {isNew && <span className={styles.newBadge}>New</span>}
-      </div>
+        {poster ? (
+          <img src={poster} alt={title} className={styles.posterImg} />
+        ) : (
+          <div className={styles.posterFallback} />
+        )}
 
-      <div className={styles.info}>
-        <p className={styles.title}>{title}</p>
-        <div className={styles.meta}>
-          <span className={styles.year}>{year}</span>
-          <span className={`${styles.genre} ${GENRE_CLASS[genre] ?? ''}`}>
-            {genre}
-          </span>
+        <div className={styles.topRow}>
+          {rating != null && (
+            <div className={styles.rating}>
+              <span className={styles.ratingStar}>★</span>
+              {rating}
+            </div>
+          )}
+          {isNew && <span className={styles.newBadge}>New</span>}
+        </div>
+
+        <div className={styles.overlay}>
+          <div className={styles.overlayInfo}>
+            <p className={styles.overlayTitle}>{title}</p>
+            <p className={styles.overlayMeta}>
+              {year}
+              {runtime && <span> • {runtime}</span>}
+              {genre && <span> • {genre}</span>}
+            </p>
+          </div>
+
+          <div className={styles.overlayActions}>
+            <div className={styles.actionsLeft}>
+              <button
+                className={styles.playBtn}
+                onClick={handlePlay}
+                aria-label="Play"
+              >
+                ▶
+              </button>
+              <button
+                className={`${styles.iconBtn} ${isFav ? styles.iconBtnActive : ""}`}
+                onClick={handleFav}
+                aria-label="Add to favourites"
+              >
+                ♥
+              </button>
+            </div>
+          </div>
         </div>
       </div>
     </div>
@@ -35,9 +82,12 @@ export default function MovieCard({ title, year, genre, rating, isNew = false })
 }
 
 MovieCard.propTypes = {
-  title:  PropTypes.string.isRequired,
-  year:   PropTypes.number.isRequired,
-  genre:  PropTypes.oneOf(['Drama', 'Crime', 'Action', 'Sci-Fi', 'Thriller', 'Biography']).isRequired,
-  rating: PropTypes.number.isRequired,
-  isNew:  PropTypes.bool,
+  id: PropTypes.string.isRequired,
+  title: PropTypes.string.isRequired,
+  year: PropTypes.number.isRequired,
+  genre: PropTypes.string,
+  rating: PropTypes.number,
+  runtime: PropTypes.string,
+  poster: PropTypes.string,
+  isNew: PropTypes.bool,
 };
