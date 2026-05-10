@@ -1,5 +1,6 @@
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./../shared/components/Layout";
+import { PATHS } from "./../shared/constants/path";
 
 import Home from "./../feature/Home";
 import WatchList from "./../feature/WatchList";
@@ -15,18 +16,17 @@ export default function AppRoutes() {
     <BrowserRouter>
       <Layout>
         <Routes>
-          <Route path="/" element={<Home />} />
-          <Route path="/watchlist" element={<WatchList />} />
+          <Route path={PATHS.home} element={<Home />} />
+          <Route path={PATHS.watchlist} element={<WatchList />} />
 
-          <Route path="/classics" element={<ClassicsPage />}>
-            <Route path="1950-1975" element={<EarlyEraPage />} />
-            <Route path="1975-2000" element={<LateEraPage />} />
+          <Route path={PATHS.classics} element={<ClassicsPage />}>
+            <Route path={PATHS.earlyEra} element={<EarlyEraPage />} />
+            <Route path={PATHS.lateEra} element={<LateEraPage />} />
           </Route>
 
-          <Route path="/modern" element={<ModernPage />} />
-          <Route path="/movies/:id" element={<DetailPage />} />
-
-          <Route path="*" element={<NotFound />} />
+          <Route path={PATHS.modern} element={<ModernPage />} />
+          <Route path={PATHS.detail} element={<DetailPage />} />
+          <Route path={PATHS.notFound} element={<NotFound />} />
         </Routes>
       </Layout>
     </BrowserRouter>

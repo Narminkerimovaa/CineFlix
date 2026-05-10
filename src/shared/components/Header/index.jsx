@@ -1,11 +1,12 @@
 import { NavLink } from 'react-router-dom';
 import styles from './Header.module.css';
+import { PATHS } from '../../../routes/paths';
 
 const NAV_LINKS = [
-  { label: 'All Movies', href: '/' },
-  { label: 'Watch List', href: '/watchlist' },
-  { label: '1950–2000', href: '/classics' },
-  { label: '2000–2023', href: '/modern' },
+  { label: 'All Movies', href: PATHS.home },
+  { label: 'Watch List', href: PATHS.watchlist },
+  { label: '1950–2000',  href: PATHS.classics },
+  { label: '2000–2023',  href: PATHS.modern },
 ];
 
 export default function Header() {
