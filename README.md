@@ -1,16 +1,84 @@
-# React + Vite
+# 🎬 Cineflix
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+React ilə hazırlanmış film baxış tətbiqi. OMDB API-dən real film məlumatları çəkilir və filtrlənmiş səhifələrdə göstərilir.
 
-Currently, two official plugins are available:
+---
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## Texnologiyalar
 
-## React Compiler
+- **React** — UI
+- **React Router v6** — routing və nested routes
+- **CSS Modules** — scoped stillər
+- **OMDB API** — film məlumatları
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+---
 
-## Expanding the ESLint configuration
+## Funksionallıq
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and [`typescript-eslint`](https://typescript-eslint.io) in your project.
+- Bütün filmləri gəz
+- Dövrə görə filtrləmə — 1950–2000 və 2000–2023
+- İzləmə siyahısı — film əlavə et / sil
+- Film detal səhifəsi
+- 404 səhifəsi
+
+---
+
+## Layihə Strukturu
+
+```
+src/
+├── assets/
+├── feature/
+│   ├── ClassicsPage/
+│   │   ├── EarlyEraPage/      # 1950–2000
+│   │   └── LateEraPage/       # 2000–2023
+│   ├── DetailPage/
+│   ├── Home/
+│   ├── ModernPage/
+│   ├── NotFound/
+│   └── WatchList/
+├── routes/
+│   └── index.jsx
+├── shared/
+│   ├── components/
+│   │   ├── Button/
+│   │   ├── Card/
+│   │   ├── Dropdown/
+│   │   ├── Header/
+│   │   ├── Layout/
+│   │   └── Spinner/
+│   ├── constants/
+│   │   └── path.js            # route path-ləri
+│   ├── helpers/
+│   │   └── client.js
+│   ├── hooks/
+│   │   ├── useFetch.js
+│   │   └── useTitle.js
+│   ├── provider/
+│   │   └── Global/
+│   │       ├── GlobalProvider.jsx
+│   │       └── useGlobal.js   # qlobal state hook
+│   └── services/
+│       ├── api.js
+│       └── handler.js
+└── styles/
+    └── global.css
+```
+
+---
+
+## Başlamaq
+
+```bash
+npm install
+npm run dev
+```
+
+---
+
+## Öyrənmə Məqsədləri
+
+- `<Outlet />` ilə nested routing
+- Context API ilə qlobal state
+- Komponent kompozisiyası
+- CSS custom properties və design tokens
