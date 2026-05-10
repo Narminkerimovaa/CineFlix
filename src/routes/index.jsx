@@ -1,14 +1,14 @@
-import { BrowserRouter, Routes, Route} from "react-router-dom";
+import { BrowserRouter, Routes, Route } from "react-router-dom";
 import Layout from "./../shared/components/Layout";
 
 import Home from "./../feature/Home";
 import WatchList from "./../feature/WatchList";
 import ClassicsPage from "./../feature/ClassicsPage";
-import EarlyEraPage from "./../feature/EarlyEraPage";
-import LateEraPage from "./../feature/LateEraPage";
+import EarlyEraPage from "./../feature/ClassicsPage/EarlyEraPage";
+import LateEraPage from "./../feature/ClassicsPage/LateEraPage";
 import ModernPage from "./../feature/ModernPage";
 import NotFound from "./../feature/NotFound";
-import DetailPage from './../feature/DetailPage'
+import DetailPage from "./../feature/DetailPage";
 
 export default function AppRoutes() {
   return (
@@ -18,8 +18,7 @@ export default function AppRoutes() {
           <Route path="/" element={<Home />} />
           <Route path="/watchlist" element={<WatchList />} />
 
-          <Route path="/classics">
-            <Route index element={<ClassicsPage />} />
+          <Route path="/classics" element={<ClassicsPage />}>
             <Route path="1950-1975" element={<EarlyEraPage />} />
             <Route path="1975-2000" element={<LateEraPage />} />
           </Route>

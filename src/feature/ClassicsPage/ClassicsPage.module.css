@@ -1,0 +1,105 @@
+.page {
+  max-width: var(--content-max-w);
+  margin: 0 auto;
+  padding: var(--space-8) var(--content-padding);
+  min-height: calc(100vh - var(--header-height));
+}
+
+.pageHeader {
+  margin-bottom: var(--space-7);
+}
+
+.browse {
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  color: var(--color-accent);
+  margin-bottom: var(--space-2);
+  line-height: 1;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: clamp(28px, 4vw, 40px);
+  font-weight: var(--weight-regular);
+  color: var(--color-text-primary);
+}
+
+/* ── Tabs ── */
+.tabs {
+  display: flex;
+  gap: 0;
+  margin-bottom: var(--space-8);
+  border-bottom: 0.5px solid var(--color-border-subtle);
+}
+
+.tab {
+  display: flex;
+  align-items: center;
+  gap: var(--space-2);
+  font-family: var(--font-sans);
+  font-size: var(--text-xs);
+  font-weight: var(--weight-medium);
+  color: var(--color-text-muted);
+  text-decoration: none;
+  padding: var(--space-3) var(--space-6);
+  border-bottom: 2px solid transparent;
+  margin-bottom: -0.5px;
+  transition: color var(--transition-fast), border-color var(--transition-fast);
+  letter-spacing: 0.04em;
+}
+
+.tab:hover {
+  color: var(--color-text-secondary);
+}
+
+.tabActive {
+  color: var(--color-text-primary);
+  border-bottom-color: var(--color-accent);
+}
+
+.tabCount {
+  font-size: 11px;
+  font-weight: var(--weight-bold);
+  color: var(--color-text-muted);
+  background: var(--color-bg-elevated);
+  border: 0.5px solid var(--color-border-subtle);
+  border-radius: var(--radius-full);
+  padding: 1px 8px;
+  transition: color var(--transition-fast);
+}
+
+.tabActive .tabCount {
+  color: var(--color-accent);
+  border-color: var(--color-accent);
+  background: var(--color-accent-dim);
+}
+
+.count {
+  font-size: var(--text-xs);
+  color: var(--color-text-muted);
+  margin-bottom: var(--space-5);
+}
+
+.grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(180px, 1fr));
+  gap: var(--space-6);
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 30vh;
+}
+
+.stateText {
+  font-size: var(--text-sm);
+  color: var(--color-text-secondary);
+}
+
+@media (max-width: 600px) {
+  .grid { grid-template-columns: repeat(2, 1fr); }
+}

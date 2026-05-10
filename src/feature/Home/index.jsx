@@ -32,13 +32,7 @@ export default function Home() {
         <div className={styles.grid}>
           {movies.map((movie) => (
             <MovieCard
-              key={movie.id}
-              id={movie.id} 
-              title={movie.title}
-              year={movie.year}
-              genre={movie.genre}
-              rating={movie.rating}
-              poster={movie.poster}
+              key={movie.id} {...movie}
             />
           ))}
         </div>

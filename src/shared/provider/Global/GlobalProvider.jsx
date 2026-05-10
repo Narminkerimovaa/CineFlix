@@ -17,6 +17,7 @@ export const GlobalProvider = ({ children }) => {
     loading: loadingDetails,
     error: errorDetails,
   } = useFetch(getMoviesDetails);
+  
   const [watchlist, setWatchlist] = useState([]);
 
   const toggleWatchlist = useCallback((movie) => {
