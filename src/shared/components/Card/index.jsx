@@ -1,5 +1,4 @@
 import PropTypes from "prop-types";
-import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./MovieCard.module.css";
 import useGlobal from "../../provider/Global/useGlobal";
